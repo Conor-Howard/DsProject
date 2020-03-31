@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "laptop";
+option java_outer_classname = "LaptopServiceImpl";
+
+package laptop;
+
+// Interface exported by the server.
+service LaptopService {
+
+  rpc powerOn(PowerRequest) returns (PowerResponse) {}
+  rpc changeBrightness(stream BrightnessRequest) returns (BrightnessResponse) {}
+
+}
+
+message PowerRequest {
+	bool state = 1;	
+}
+
+message PowerResponse {
+	bool state = 1;
+}
+
+message BrightnessRequest {
+	int32 brightness = 1;
+}
+
+message BrightnessResponse {
+	int32 brightness = 1;
+}

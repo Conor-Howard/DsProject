@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "light";
+option java_outer_classname = "LightServiceImpl";
+
+package lights;
+
+// Interface exported by the server.
+service LightService {
+
+  rpc lightsOn(LightRequest) returns (LightResponse) {}
+  rpc changeBrightness(stream BrightnessRequest) returns (BrightnessResponse) {}
+
+}
+
+message LightRequest {
+	bool state = 1;	
+}
+
+message LightResponse {
+	bool state = 1;
+}
+
+message BrightnessRequest {
+	int32 brightness = 1;
+}
+
+message BrightnessResponse {
+	int32 brightness = 1;
+}
