@@ -1,6 +1,7 @@
 package laptop;
 
 import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Random;
@@ -10,6 +11,8 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.Status;
 import io.grpc.StatusRuntimeException;
+//import laptop.LaptopResponse;
+//import laptop.StringRequest;
 import laptop.PowerRequest;
 import laptop.PowerResponse;
 import io.grpc.stub.StreamObserver;
@@ -30,7 +33,7 @@ public class LaptopClient {
 		asyncStub = LaptopServiceGrpc.newStub(channel);
 		futureStub =  LaptopServiceGrpc.newFutureStub(channel);
 
-		//changeBrightness();
+		changeBrightness();
 		powerOn();
 	}
 
@@ -48,29 +51,50 @@ public class LaptopClient {
 	public static void changeBrightness() {
 
 		StreamObserver<BrightnessResponse> responseObserver = new StreamObserver<BrightnessResponse>() {
-			
+
+			@Override
 			public void onNext(BrightnessResponse value) {
-				System.out.println("receiving brightness" + value.getBrightness());
+				System.out.println("receiving length: " + value.getBrightness());
+
+
 			}
-			
+
+			@Override
 			public void onError(Throwable t) {
-				t.printStackTrace();
+				// TODO Auto-generated method stub
+
 			}
-			
+
+			@Override
 			public void onCompleted() {
-				
+				// TODO Auto-generated method stub
+
 			}
+
 		};
 
 		StreamObserver<BrightnessRequest> requestObserver = asyncStub.changeBrightness(responseObserver);
 		try {
+
 			requestObserver.onNext(BrightnessRequest.newBuilder().setBrightness(1).build());
 			requestObserver.onNext(BrightnessRequest.newBuilder().setBrightness(2).build());
 			requestObserver.onNext(BrightnessRequest.newBuilder().setBrightness(3).build());
-		} catch(RuntimeException e) {
-			System.out.print("Error");
+			requestObserver.onNext(BrightnessRequest.newBuilder().setBrightness(4).build());
+
+			// Sleep for a bit before sending the next one.
+			//Thread.sleep(new Random().nextInt(1000) + 500);
+
+
+		} catch (RuntimeException e) {
+			// Cancel RPC
+			requestObserver.onError(e);
+			throw e;
+			//} catch (InterruptedException e) {
+
+			//	e.printStackTrace();
 		}
-		
+
+		// Mark the end of requests
 		requestObserver.onCompleted();
 	}
 }

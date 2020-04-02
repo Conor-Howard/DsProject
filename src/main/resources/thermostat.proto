@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "thermostat";
+option java_outer_classname = "ThermostatServiceImpl";
+
+package thermostat;
+
+// Interface exported by the server.
+service ThermostatService {
+
+  rpc power(PowerRequest) returns (PowerResponse) {}
+  rpc changeTemperature(TemperatureResponse) returns (stream TemperatureResponse) {}
+
+}
+
+message PowerRequest {
+	bool state = 1;	
+}
+
+message PowerResponse {
+	bool state = 1;
+}
+
+message TemperatureResponse {
+	int32 temp = 1;
+}
+
+message TemperatureRequest {
+	int32 temp = 1;
+}

@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "microphone";
+option java_outer_classname = "MicrophoneServiceImpl";
+
+package microphone;
+
+// Interface exported by the server.
+service MicrophoneService {
+
+  rpc powerOn(PowerRequest) returns (PowerResponse) {}
+  rpc microphoneRecording(stream MicrophoneRequest) returns (stream MicrophoneResponse) {}
+
+}
+
+message PowerRequest {
+	bool state = 1;
+}
+
+message PowerResponse {
+	bool state = 1;
+}
+
+message MicrophoneRequest {
+	string audio = 1;
+}
+
+message MicrophoneResponse {
+	string audio = 1;
+}

@@ -46,7 +46,7 @@ public class LaptopServer extends LaptopServiceImplBase {
 		 responseObserver.onCompleted();
 	 }
 	 
-	 public StreamObserver<BrightnessRequest> brightness(final StreamObserver<BrightnessResponse> responseObserver) {
+	 public StreamObserver<BrightnessRequest> changeBrightness(final StreamObserver<BrightnessResponse> responseObserver) {
 		 
 		 
 		 return new StreamObserver<BrightnessRequest>() {
