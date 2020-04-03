@@ -28,6 +28,7 @@ laptop/LaptopServiceGrpc$LaptopServiceBaseDescriptorSupplier.class
 microphone/MicrophoneRequest$1.class
 laptop/BrightnessRequestOrBuilder.class
 thermostat/TemperatureRequest.class
+microphone/MicrophoneClient$1.class
 thermostat/ThermostatServiceGrpc.class
 laptop/SmartMeetingApp.class
 thermostat/PowerResponseOrBuilder.class
@@ -51,9 +52,11 @@ microphone/PowerResponse$Builder.class
 microphone/MicrophoneServiceImpl$1.class
 laptop/PowerRequest$1.class
 microphone/PowerRequest.class
+microphone/MicrophoneClient.class
 thermostat/PowerRequest$1.class
 laptop/LaptopServiceGrpc$LaptopServiceBlockingStub.class
 microphone/MicrophoneRequest$Builder.class
+microphone/MicrophoneServer$1.class
 light/LightRequest$1.class
 microphone/MicrophoneServiceGrpc$MicrophoneServiceBaseDescriptorSupplier.class
 microphone/PowerResponse.class
@@ -93,6 +96,7 @@ microphone/PowerResponse$1.class
 microphone/MicrophoneResponse$Builder.class
 thermostat/TemperatureRequestOrBuilder.class
 microphone/MicrophoneServiceGrpc$1.class
+microphone/MicrophoneServer.class
 laptop/SmartMeetingApp$1.class
 light/LightServiceImpl.class
 thermostat/ThermostatServiceGrpc$ThermostatServiceStub.class
@@ -109,6 +113,7 @@ laptop/LaptopServiceGrpc$LaptopServiceMethodDescriptorSupplier.class
 microphone/MicrophoneServiceImpl.class
 thermostat/TemperatureResponse.class
 thermostat/TemperatureRequest$1.class
+thermostat/ThermostatServer.class
 light/LightServiceGrpc.class
 laptop/LaptopServiceGrpc$LaptopServiceImplBase.class
 laptop/PowerRequest.class

@@ -47,12 +47,12 @@ public final class ThermostatServiceImpl {
       "equest\022\r\n\005state\030\001 \001(\010\"\036\n\rPowerResponse\022\r" +
       "\n\005state\030\001 \001(\010\"#\n\023TemperatureResponse\022\014\n\004" +
       "temp\030\001 \001(\005\"\"\n\022TemperatureRequest\022\014\n\004temp" +
-      "\030\001 \001(\0052\256\001\n\021ThermostatService\022>\n\005power\022\030." +
+      "\030\001 \001(\0052\255\001\n\021ThermostatService\022>\n\005power\022\030." +
       "thermostat.PowerRequest\032\031.thermostat.Pow" +
-      "erResponse\"\000\022Y\n\021changeTemperature\022\037.ther" +
-      "mostat.TemperatureResponse\032\037.thermostat." +
-      "TemperatureResponse\"\0000\001B%\n\nthermostatB\025T" +
-      "hermostatServiceImplP\001b\006proto3"
+      "erResponse\"\000\022X\n\021changeTemperature\022\036.ther" +
+      "mostat.TemperatureRequest\032\037.thermostat.T" +
+      "emperatureResponse\"\0000\001B%\n\nthermostatB\025Th" +
+      "ermostatServiceImplP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

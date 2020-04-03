@@ -7,12 +7,16 @@
 /Users/choward/DsProject/src/main/java/light/LightRequest.java
 /Users/choward/DsProject/src/main/java/microphone/MicrophoneResponse.java
 /Users/choward/DsProject/src/main/java/thermostat/TemperatureResponse.java
+/Users/choward/DsProject/src/main/java/microphone/MicrophoneServer.java
+/Users/choward/DsProject/src/main/java/thermostat/ThermostatClient.java
 /Users/choward/DsProject/src/main/java/thermostat/PowerResponse.java
 /Users/choward/DsProject/src/main/java/laptop/LaptopServiceGrpc.java
 /Users/choward/DsProject/src/main/java/thermostat/PowerRequestOrBuilder.java
+/Users/choward/DsProject/src/main/java/microphone/MicrophoneClient.java
 /Users/choward/DsProject/src/main/java/microphone/PowerResponse.java
 /Users/choward/DsProject/src/main/java/light/LightResponse.java
 /Users/choward/DsProject/src/main/java/laptop/LaptopClient.java
+/Users/choward/DsProject/src/main/java/thermostat/ThermostatServer.java
 /Users/choward/DsProject/src/main/java/microphone/MicrophoneServiceImpl.java
 /Users/choward/DsProject/src/main/java/microphone/MicrophoneServiceGrpc.java
 /Users/choward/DsProject/src/main/java/laptop/PowerResponseOrBuilder.java

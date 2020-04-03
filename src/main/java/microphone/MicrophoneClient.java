@@ -1,12 +1,13 @@
 package microphone;
 
+import java.util.Random;
 import java.util.logging.Logger;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import microphone.MicrophoneResponse;
+import microphone.MicrophoneRequest;
 import io.grpc.stub.StreamObserver;
-//import light.BrightnessRequest;
-//import light.BrightnessResponse;
 import microphone.MicrophoneClient;
 
 public class MicrophoneClient {
@@ -31,21 +32,23 @@ public class MicrophoneClient {
 	
 	public static void powerOn() {
 
-		PowerRequest request = PowerRequest.newBuilder().setState(false).build();
+		PowerRequest request = PowerRequest.newBuilder().setState(true).build();
 
 		PowerResponse response = blockingStub.powerOn(request);
 
-        System.out.println(response.getState());
+        System.out.println("Power = " + response.getState());
 
     }
 	
-	public static void microphoneRecording(){
+	public static void microphoneRecording() throws InterruptedException {
 
 		StreamObserver<MicrophoneResponse> responseObserver = new StreamObserver<MicrophoneResponse>() {
 
 			@Override
 			public void onNext(MicrophoneResponse value) {
-				System.out.println("receiving brightness: " + value.getAudio());
+				System.out.println(value.getAudio());
+
+
 			}
 
 			@Override
@@ -65,15 +68,22 @@ public class MicrophoneClient {
 		StreamObserver<MicrophoneRequest> requestObserver = asyncStub.microphoneRecording(responseObserver);
 		try {
 
-			requestObserver.onNext(MicrophoneRequest.newBuilder().setAudio("Hello").build());
-			requestObserver.onNext(MicrophoneRequest.newBuilder().setAudio("Hello").build());
-			requestObserver.onNext(MicrophoneRequest.newBuilder().setAudio("Hello").build());
-			requestObserver.onNext(MicrophoneRequest.newBuilder().setAudio("Hello").build());
-			requestObserver.onNext(MicrophoneRequest.newBuilder().setAudio("Hello").build());
+			requestObserver.onNext(MicrophoneRequest.newBuilder().setAudio("One").build());
+			requestObserver.onNext(MicrophoneRequest.newBuilder().setAudio("Two").build());
+			requestObserver.onNext(MicrophoneRequest.newBuilder().setAudio("Three").build());
+			requestObserver.onNext(MicrophoneRequest.newBuilder().setAudio("Four").build());
+
+			// Sleep for a bit before sending the next one.
+			Thread.sleep(new Random().nextInt(1000) + 500);
 
 
 		} catch (RuntimeException e) {
-			System.out.println("Error");
+			// Cancel RPC
+			requestObserver.onError(e);
+			throw e;
+			} catch (InterruptedException e) {
+
+				e.printStackTrace();
 		}
 
 		// Mark the end of requests

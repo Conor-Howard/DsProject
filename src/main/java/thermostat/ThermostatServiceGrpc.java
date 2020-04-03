@@ -62,28 +62,28 @@ public final class ThermostatServiceGrpc {
      return getPowerMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<thermostat.TemperatureResponse,
+  private static volatile io.grpc.MethodDescriptor<thermostat.TemperatureRequest,
       thermostat.TemperatureResponse> getChangeTemperatureMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "changeTemperature",
-      requestType = thermostat.TemperatureResponse.class,
+      requestType = thermostat.TemperatureRequest.class,
       responseType = thermostat.TemperatureResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-  public static io.grpc.MethodDescriptor<thermostat.TemperatureResponse,
+  public static io.grpc.MethodDescriptor<thermostat.TemperatureRequest,
       thermostat.TemperatureResponse> getChangeTemperatureMethod() {
-    io.grpc.MethodDescriptor<thermostat.TemperatureResponse, thermostat.TemperatureResponse> getChangeTemperatureMethod;
+    io.grpc.MethodDescriptor<thermostat.TemperatureRequest, thermostat.TemperatureResponse> getChangeTemperatureMethod;
     if ((getChangeTemperatureMethod = ThermostatServiceGrpc.getChangeTemperatureMethod) == null) {
       synchronized (ThermostatServiceGrpc.class) {
         if ((getChangeTemperatureMethod = ThermostatServiceGrpc.getChangeTemperatureMethod) == null) {
           ThermostatServiceGrpc.getChangeTemperatureMethod = getChangeTemperatureMethod = 
-              io.grpc.MethodDescriptor.<thermostat.TemperatureResponse, thermostat.TemperatureResponse>newBuilder()
+              io.grpc.MethodDescriptor.<thermostat.TemperatureRequest, thermostat.TemperatureResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(
                   "thermostat.ThermostatService", "changeTemperature"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  thermostat.TemperatureResponse.getDefaultInstance()))
+                  thermostat.TemperatureRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   thermostat.TemperatureResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new ThermostatServiceMethodDescriptorSupplier("changeTemperature"))
@@ -133,7 +133,7 @@ public final class ThermostatServiceGrpc {
 
     /**
      */
-    public void changeTemperature(thermostat.TemperatureResponse request,
+    public void changeTemperature(thermostat.TemperatureRequest request,
         io.grpc.stub.StreamObserver<thermostat.TemperatureResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getChangeTemperatureMethod(), responseObserver);
     }
@@ -151,7 +151,7 @@ public final class ThermostatServiceGrpc {
             getChangeTemperatureMethod(),
             asyncServerStreamingCall(
               new MethodHandlers<
-                thermostat.TemperatureResponse,
+                thermostat.TemperatureRequest,
                 thermostat.TemperatureResponse>(
                   this, METHODID_CHANGE_TEMPERATURE)))
           .build();
@@ -189,7 +189,7 @@ public final class ThermostatServiceGrpc {
 
     /**
      */
-    public void changeTemperature(thermostat.TemperatureResponse request,
+    public void changeTemperature(thermostat.TemperatureRequest request,
         io.grpc.stub.StreamObserver<thermostat.TemperatureResponse> responseObserver) {
       asyncServerStreamingCall(
           getChannel().newCall(getChangeTemperatureMethod(), getCallOptions()), request, responseObserver);
@@ -227,7 +227,7 @@ public final class ThermostatServiceGrpc {
     /**
      */
     public java.util.Iterator<thermostat.TemperatureResponse> changeTemperature(
-        thermostat.TemperatureResponse request) {
+        thermostat.TemperatureRequest request) {
       return blockingServerStreamingCall(
           getChannel(), getChangeTemperatureMethod(), getCallOptions(), request);
     }
@@ -288,7 +288,7 @@ public final class ThermostatServiceGrpc {
               (io.grpc.stub.StreamObserver<thermostat.PowerResponse>) responseObserver);
           break;
         case METHODID_CHANGE_TEMPERATURE:
-          serviceImpl.changeTemperature((thermostat.TemperatureResponse) request,
+          serviceImpl.changeTemperature((thermostat.TemperatureRequest) request,
               (io.grpc.stub.StreamObserver<thermostat.TemperatureResponse>) responseObserver);
           break;
         default:

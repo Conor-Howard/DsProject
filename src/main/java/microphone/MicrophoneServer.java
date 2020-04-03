@@ -31,7 +31,6 @@ public class MicrophoneServer extends MicrophoneServiceImplBase{
 	public void powerOn(PowerRequest request, StreamObserver<PowerResponse> responseObserver) {
         System.out.println("Receiving request...");
 
-        System.out.println("Microphone power on");
 
         Boolean power = request.getState(); 
         
@@ -39,6 +38,8 @@ public class MicrophoneServer extends MicrophoneServiceImplBase{
 
         responseObserver.onNext(response);
         responseObserver.onCompleted();
+        
+        System.out.println("Microphone power on");
 
 	}
 	

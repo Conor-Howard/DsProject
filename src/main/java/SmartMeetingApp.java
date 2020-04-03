@@ -25,6 +25,7 @@ public class SmartMeetingApp {
 	/**
 	 * Create the application.
 	 */
+
 	public SmartMeetingApp() {
 		initialize();
 	}

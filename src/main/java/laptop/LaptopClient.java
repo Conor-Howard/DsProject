@@ -48,13 +48,13 @@ public class LaptopClient {
 		System.out.println(response.getState());
 	}
 	
-	public static void changeBrightness() {
+	public static void changeBrightness() throws InterruptedException {
 
 		StreamObserver<BrightnessResponse> responseObserver = new StreamObserver<BrightnessResponse>() {
 
 			@Override
 			public void onNext(BrightnessResponse value) {
-				System.out.println("receiving length: " + value.getBrightness());
+				System.out.println("Brightness set to: " + value.getBrightness());
 
 
 			}
@@ -82,16 +82,16 @@ public class LaptopClient {
 			requestObserver.onNext(BrightnessRequest.newBuilder().setBrightness(4).build());
 
 			// Sleep for a bit before sending the next one.
-			//Thread.sleep(new Random().nextInt(1000) + 500);
+			Thread.sleep(new Random().nextInt(1000) + 500);
 
 
 		} catch (RuntimeException e) {
 			// Cancel RPC
 			requestObserver.onError(e);
 			throw e;
-			//} catch (InterruptedException e) {
+			} catch (InterruptedException e) {
 
-			//	e.printStackTrace();
+				e.printStackTrace();
 		}
 
 		// Mark the end of requests
