@@ -17,7 +17,7 @@ public class MicrophoneServer extends MicrophoneServiceImplBase{
 	public static void main(String[] args) throws IOException, InterruptedException {
 		MicrophoneServer microphoneserver = new MicrophoneServer();
 	   
-		int port = 50051;
+		int port = 40041;
 	    Server server = ServerBuilder.forPort(port)
 	        .addService(microphoneserver)
 	        .build()

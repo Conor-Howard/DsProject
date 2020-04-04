@@ -22,7 +22,7 @@ public class LaptopServer extends LaptopServiceImplBase {
 	 public static void main(String[] args) throws IOException, InterruptedException {
 		    LaptopServer stringserver = new LaptopServer();
 		   
-		    int port = 50051;
+		    int port = 30031;
 		    Server server = ServerBuilder.forPort(port)
 		        .addService(stringserver)
 		        .build()

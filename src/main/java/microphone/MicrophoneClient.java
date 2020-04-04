@@ -19,7 +19,7 @@ public class MicrophoneClient {
 	private static MicrophoneServiceGrpc.MicrophoneServiceFutureStub futureStub;
 	
 	public static void main(String[] args) throws Exception {
-		ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50051).usePlaintext().build();
+		ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 40041).usePlaintext().build();
 
 		blockingStub = MicrophoneServiceGrpc.newBlockingStub(channel);
 		asyncStub = MicrophoneServiceGrpc.newStub(channel);

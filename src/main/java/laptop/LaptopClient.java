@@ -26,7 +26,7 @@ public class LaptopClient {
 	private static LaptopServiceGrpc.LaptopServiceFutureStub futureStub;
 
 	public static void main(String[] args) throws Exception {
-		ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50051).usePlaintext().build();
+		ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 30031).usePlaintext().build();
 
 		//stubs -- generate from proto
 		blockingStub = LaptopServiceGrpc.newBlockingStub(channel);
